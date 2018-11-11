@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4161071392073690}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: UpperArm_Right_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,7 +35,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4915190073127844}
   - component: {fileID: 137775791350634304}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Zumbi_CarregadorDeMalas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,7 +51,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4584755854888952}
   - component: {fileID: 137388641791282490}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Zumbi_Palhaco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4534217842227762}
   - component: {fileID: 137577774501226078}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Zumbi_Prisioneiro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 95980128750324710}
   - component: {fileID: 114210205338120818}
   - component: {fileID: 114971833986966374}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Zumbi
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4119306247950086}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Head_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4786802064002958}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hand_Right_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4640800587747616}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Foot_Left_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4628050186619636}
   - component: {fileID: 137924588547880380}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Zumbi_JogadorDeFutebol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4465532865651958}
   - component: {fileID: 137842209439248006}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Zumbi_Bombeiro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4912754963006648}
   - component: {fileID: 137706124054044814}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Zumbi_Ladrao
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,7 +195,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4834321731685124}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: UpperArm_Left_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +211,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4317694924145336}
   - component: {fileID: 137866230876891476}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Zumbi_Caminhoneiro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,7 +226,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4950769382026778}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: UpperLeg_Left_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,7 +241,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4655122525213968}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Foot_Right_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,7 +257,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4320076535330248}
   - component: {fileID: 137420249909366082}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Zumbi_AtendenteLoja
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,7 +272,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4489596235156222}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LowerLeg_Right_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287,7 +287,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4618986018344840}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LowerArm_Left_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +302,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4417938583023914}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hips_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,7 +318,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4713982828950062}
   - component: {fileID: 137946948699699322}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Zumbi_Gangster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,7 +334,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4462787663555580}
   - component: {fileID: 137873406036638876}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Zumbi_Soldado
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -350,7 +350,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4810421650067700}
   - component: {fileID: 137438514265150664}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Zumbi_SegurancaAeroporto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -366,7 +366,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4830178566776364}
   - component: {fileID: 137116009326691062}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Zumbi_PoliciaMontada
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -382,7 +382,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4923061216820496}
   - component: {fileID: 137896789149999878}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Zumbi_LiderDeTorcida
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -397,7 +397,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4039380964065388}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: UpperLeg_Right_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -413,7 +413,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4166210590629448}
   - component: {fileID: 137524924536621364}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Zumbi_Turista
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -428,7 +428,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4883272885304998}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Spine_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -444,7 +444,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4270322630839918}
   - component: {fileID: 137340995083224866}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Zumbi_Fazendeiro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -460,7 +460,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4826438301479328}
   - component: {fileID: 137275108383250466}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Zumbi_Avo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -475,7 +475,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4771106664044050}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Body_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -491,7 +491,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4806361261982006}
   - component: {fileID: 137659938392898482}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Zumbi_MulherFazendeira
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -507,7 +507,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4165384363197832}
   - component: {fileID: 137381508051945416}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Zumbi_ControleAeroporto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -523,7 +523,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4074195298825046}
   - component: {fileID: 137459195749533160}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Zumbi_Corredor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -538,7 +538,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4427061110745408}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LowerArm_Right_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -554,7 +554,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4220394228453672}
   - component: {fileID: 137618549149319764}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Zumbi_JogadorBasket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -570,7 +570,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4427036334896142}
   - component: {fileID: 137118536983718234}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Zumbi_Executivo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -586,7 +586,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4898405117809746}
   - component: {fileID: 137373360317106078}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Zumbi_PapaiNoel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -601,7 +601,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4498343506638384}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LowerLeg_Left_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -617,7 +617,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4313861026050828}
   - component: {fileID: 137320644294802234}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Zumbi_Mecanico
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -632,7 +632,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4396165048266644}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hat_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -648,7 +648,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4093584653558684}
   - component: {fileID: 137499347551406128}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Zumbi_Piloto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -664,7 +664,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4147952483930742}
   - component: {fileID: 137904404542334546}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Zumbi_Industrial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -680,7 +680,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4081061370366138}
   - component: {fileID: 137970742226127428}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Zumbi_MoradorDeAreaLivre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -695,7 +695,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4163170829806884}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hand_Left_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -710,7 +710,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4600150162690686}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Root_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -726,7 +726,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4874114361210310}
   - component: {fileID: 137401695839465420}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Zumbi_TrabalhadorEstrada
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1247,7 +1247,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1105417723486888}
   m_LocalRotation: {x: 0, y: 0.9659258, z: 0, w: 0.2588191}
-  m_LocalPosition: {x: -43.80462, y: -0.1947025, z: 31.314703}
+  m_LocalPosition: {x: -26.262718, y: -0.1947025, z: 13.19886}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4600150162690686}
@@ -1422,6 +1422,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   _deathZombieClip: {fileID: 8300000, guid: afeaf0e0cd09d95429ff9c060b049c50, type: 3}
+  followingPlayer: 0
+  closeEnough: 0
 --- !u!114 &114971833986966374
 MonoBehaviour:
   m_ObjectHideFlags: 1

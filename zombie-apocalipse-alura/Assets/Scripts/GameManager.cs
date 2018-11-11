@@ -12,11 +12,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         _cameraAnimator = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Animator>();
-    }
-
-    public void GameOver()
-    {
-        gameOver.SetActive(true);
+        Time.timeScale = 1;
     }
     public void RestartGame()
     {

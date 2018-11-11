@@ -6,13 +6,17 @@ public class Zombie : MonoBehaviour, ICharacterDamage
 {
     public float speed;
     private GameObject _player;
-    private float _distance;
+    private float _distance, _changeRandomPosition, _cooldownChangePos;
     private int _selectZombie, _hp;
     private CharactersMovement _enemyMovement;
     [SerializeField] private AudioClip _deathZombieClip;
-
+    private Vector3 _randomPosition, _direction;
+    public bool followingPlayer, closeEnough;
+    private Animator _animator;
     void Start()
     {
+        _animator = GetComponent<Animator>();
+        _cooldownChangePos = 3;
         _hp = 10;
         _enemyMovement = GetComponent<CharactersMovement>();
         _selectZombie = Random.Range(1, 28);
@@ -21,25 +25,62 @@ public class Zombie : MonoBehaviour, ICharacterDamage
     }
     void FixedUpdate()
     {
-        Vector3 direction = _player.transform.position - transform.position;
-        _distance = Vector3.Distance(_player.transform.position, this.transform.position);
-        _enemyMovement.Rotation(direction);
-
-
-        if (_distance > 2.25f)
+        if (_direction.magnitude > 2)
         {
-            _enemyMovement.Movement(direction, speed);
+            ZombieMoving(true);
+        }
+        else
+        {
+            ZombieMoving(false);
+        }
+        _distance = Vector3.Distance(_player.transform.position, this.transform.position);
+        if (_distance > 15f)
+        {
+            followingPlayer = false;
+            WalkRandom();
+            _enemyMovement.Rotation(_direction);
+        }
+        else if (_distance > 2.25f)
+        {
+            _direction = _player.transform.position - transform.position;
+            followingPlayer = true;
+            _enemyMovement.Rotation(_direction);
+            _enemyMovement.Movement(_direction, speed);
             GetComponent<Animator>().SetBool("Attacking", false);
         }
         else
         {
             GetComponent<Animator>().SetBool("Attacking", true);
+            _enemyMovement.Rotation(_direction);
         }
+    }
+    void WalkRandom()
+    {
+        _changeRandomPosition -= Time.deltaTime;
+        if (_changeRandomPosition <= 0)
+        {
+            _randomPosition = RandomPos();
+            _changeRandomPosition = _cooldownChangePos;
+        }
+        closeEnough = (Vector3.Distance(transform.position, _randomPosition) <= 1);
+        if (!closeEnough)
+        {
+            _direction = _randomPosition - this.transform.position;
+            _enemyMovement.Movement(_direction, speed);
+        }
+    }
+    private Vector3 RandomPos()
+    {
+        Vector3 pos = Random.insideUnitSphere * 15;
+        pos += this.transform.position;
+        pos.y = transform.position.y;
+
+        return pos;
     }
     void AttackingPlayer()
     {
         int randomDamage = Random.Range(20, 31);
-        if (_distance <= 2.45f)
+        if (_distance <= 2.8f)
         {
             _player.GetComponent<Player>().Damage(randomDamage);
         }
@@ -56,5 +97,9 @@ public class Zombie : MonoBehaviour, ICharacterDamage
     public void Die()
     {
         Destroy(this.gameObject);
+    }
+    private void ZombieMoving(bool move)
+    {
+        _animator.SetBool("isMoving", move);
     }
 }

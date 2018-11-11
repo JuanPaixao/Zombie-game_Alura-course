@@ -40,13 +40,6 @@ public class Player : MonoBehaviour, ICharacterDamage
             _direction = new Vector3(movHor, 0, movVer);
             isWalking(_direction.magnitude);
         }
-        else
-        {
-            if (Input.GetMouseButton(0))
-            {
-                gameManager.RestartGame();
-            }
-        }
     }
     public void isWalking(float isMoving)
     {
@@ -66,12 +59,12 @@ public class Player : MonoBehaviour, ICharacterDamage
         if (hp <= 0)
         {
             Die();
-            gameManager.GameOver();
         }
     }
     public void Die()
     {
         Time.timeScale = 0;
         alive = false;
+        uIManager.GameOver();
     }
 }

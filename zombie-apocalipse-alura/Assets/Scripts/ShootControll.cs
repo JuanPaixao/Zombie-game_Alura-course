@@ -18,8 +18,11 @@ public class ShootControll : MonoBehaviour
     {
         if (Input.GetMouseButton(0) & Time.time > cooldown)
         {
-            AudioManager.instance.PlayOneShot(_bulletClip,0.7f);
-            Instantiate(bullet, aim.transform.position,aim.transform.rotation);
+            if (_bulletClip != null)
+            {
+                AudioManager.instance.PlayOneShot(_bulletClip, 0.7f);
+            }
+            Instantiate(bullet, aim.transform.position, aim.transform.rotation);
             cooldown = Time.time + nextFire;
         }
     }
