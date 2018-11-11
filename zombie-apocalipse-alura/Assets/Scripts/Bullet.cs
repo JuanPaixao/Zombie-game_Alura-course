@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     public float bulletSpeed;
     private Rigidbody _rb;
     private GameManager _gameManager;
+   
 
 
     void Start()
@@ -27,9 +28,8 @@ public class Bullet : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             _gameManager.ShakeCamera();
-            Destroy(other.gameObject);
-            Destroy(this.gameObject);
+           other.GetComponent<Zombie>().Damage(10);
         }
-
+        Destroy(this.gameObject);
     }
 }

@@ -747,10 +747,11 @@ GameObject:
   - component: {fileID: 95745794366000104}
   - component: {fileID: 114242938554427112}
   - component: {fileID: 114572045039471960}
+  - component: {fileID: 114567083811888110}
   - component: {fileID: 136744959078078560}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1737,12 +1738,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3298f3808b2de2d4589c7c7ecbf8916f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 10
+  status: {fileID: 11400000, guid: ffa151bb3b37f71409b87ae93d606b75, type: 2}
   layerMask:
     serializedVersion: 2
     m_Bits: 256
   alive: 0
   gameManager: {fileID: 0}
+  uIManager: {fileID: 0}
+  _audioClipDamage: {fileID: 8300000, guid: 3b79e47664a74b44c9a41bd99a740c9a, type: 3}
+--- !u!114 &114567083811888110
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1978420650197722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd2b5d837c17206409ea3db570a2e327, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114572045039471960
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1756,6 +1770,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1547610235414882, guid: 8e4e0075064b2884689dd0dc403b7856, type: 2}
   aim: {fileID: 4577232973462594}
+  _bulletClip: {fileID: 8300000, guid: 5ae583fe901a8494b82ebd69c98d0c24, type: 3}
 --- !u!136 &136744959078078560
 CapsuleCollider:
   m_ObjectHideFlags: 1

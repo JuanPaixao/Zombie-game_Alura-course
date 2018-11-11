@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114927716810010108}
   - component: {fileID: 65736811723690342}
   - component: {fileID: 54893922245864356}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1547610235414882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -28.431126, y: -0.098, z: -13.454699}
+  m_LocalPosition: {x: -30.104696, y: -0.2352761, z: -17.621975}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children: []
   m_Father: {fileID: 0}
@@ -125,3 +125,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 30
+  _deathZombieClip: {fileID: 8300000, guid: afeaf0e0cd09d95429ff9c060b049c50, type: 3}

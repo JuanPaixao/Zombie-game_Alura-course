@@ -7,7 +7,8 @@ public class ZombieSpawn : MonoBehaviour
     [SerializeField] private GameObject _zombie;
     public Player player;
     private float _spawnCooldown;
-	private int  _randomNumber;
+    private int _randomNumber;
+
     void Start()
     {
         _randomNumber = Random.Range(1, 5);

@@ -2,34 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Zombie : MonoBehaviour
+public class Zombie : MonoBehaviour, ICharacterDamage
 {
-
     public float speed;
-    private Rigidbody _rb;
     private GameObject _player;
-    private GameManager _gameManager;
     private float _distance;
-    private int _selectZombie;
+    private int _selectZombie, _hp;
+    private CharactersMovement _enemyMovement;
+    [SerializeField] private AudioClip _deathZombieClip;
+
     void Start()
     {
+        _hp = 10;
+        _enemyMovement = GetComponent<CharactersMovement>();
         _selectZombie = Random.Range(1, 28);
         transform.GetChild(_selectZombie).gameObject.SetActive(true);
-        _gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         _player = GameObject.FindGameObjectWithTag("Player");
-        _rb = gameObject.GetComponent<Rigidbody>();
     }
     void FixedUpdate()
     {
         Vector3 direction = _player.transform.position - transform.position;
         _distance = Vector3.Distance(_player.transform.position, this.transform.position);
+        _enemyMovement.Rotation(direction);
 
-        Quaternion newRot = Quaternion.LookRotation(direction);
-        _rb.MoveRotation(newRot);
 
         if (_distance > 2.25f)
         {
-            _rb.MovePosition(_rb.position + direction.normalized * Time.deltaTime * speed);
+            _enemyMovement.Movement(direction, speed);
             GetComponent<Animator>().SetBool("Attacking", false);
         }
         else
@@ -39,11 +38,23 @@ public class Zombie : MonoBehaviour
     }
     void AttackingPlayer()
     {
+        int randomDamage = Random.Range(20, 31);
         if (_distance <= 2.45f)
         {
-            Time.timeScale = 0;
-            _player.GetComponent<Player>().alive = false;
-            _gameManager.GameOver();
+            _player.GetComponent<Player>().Damage(randomDamage);
         }
+    }
+    public void Damage(int damage)
+    {
+        _hp -= damage;
+        AudioManager.instance.PlayOneShot(_deathZombieClip, 0.7f);
+        if (_hp <= 0)
+        {
+            Die();
+        }
+    }
+    public void Die()
+    {
+        Destroy(this.gameObject);
     }
 }

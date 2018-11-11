@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, ICharacterDamage
 {
-    public float playerSpeed;
+    [SerializeField] private Status _status;
+    private float _playerSpeed;
     private Rigidbody _rigidbody;
     private Animator _animator;
     float movHor, movVer;
@@ -12,8 +13,19 @@ public class Player : MonoBehaviour
     public LayerMask layerMask;
     public bool alive;
     public GameManager gameManager;
+    public int hp;
+    public UIManager uIManager;
+    [SerializeField] private AudioClip _audioClipDamage;
+    private PlayerMovement _playerMovement;
+    private Vector3 _direction;
+    void Awake()
+    {
+        hp = _status.initialHP;
+        _playerSpeed = _status.speed;
+    }
     void Start()
     {
+        _playerMovement = GetComponent<PlayerMovement>();
         alive = true;
         _animator = gameObject.GetComponent<Animator>();
         _rigidbody = gameObject.GetComponent<Rigidbody>();
@@ -25,15 +37,8 @@ public class Player : MonoBehaviour
         {
             movHor = Input.GetAxis("Horizontal");
             movVer = Input.GetAxis("Vertical");
-
-            if (movHor != 0f || movVer != 0f)
-            {
-                isWalking(true);
-            }
-            else
-            {
-                isWalking(false);
-            }
+            _direction = new Vector3(movHor, 0, movVer);
+            isWalking(_direction.magnitude);
         }
         else
         {
@@ -43,22 +48,30 @@ public class Player : MonoBehaviour
             }
         }
     }
-    public void isWalking(bool isWalking)
+    public void isWalking(float isMoving)
     {
-        _animator.SetBool("isWalking", isWalking);
+        _animator.SetFloat("isMoving", isMoving);
     }
     void FixedUpdate()
     {
-        _rigidbody.MovePosition(_rigidbody.position + (new Vector3(movHor, 0, movVer) * playerSpeed * Time.deltaTime));
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Debug.DrawRay(ray.origin, ray.direction * 100, Color.magenta);
-        if (Physics.Raycast(ray, out _hit, 100f, layerMask))
-        {
-            Vector3 aimPosition = _hit.point - transform.position;
-            aimPosition.y = this.transform.position.y;
+        _rigidbody.MovePosition(_rigidbody.position + _direction * _playerSpeed * Time.deltaTime);
 
-            Quaternion look = Quaternion.LookRotation(aimPosition);
-            _rigidbody.MoveRotation(look);
+        _playerMovement.PlayerMov(layerMask, _hit);
+    }
+    public void Damage(int damage)
+    {
+        hp -= damage;
+        uIManager.SetHP();
+        AudioManager.instance.PlayOneShot(_audioClipDamage, 0.6f);
+        if (hp <= 0)
+        {
+            Die();
+            gameManager.GameOver();
         }
+    }
+    public void Die()
+    {
+        Time.timeScale = 0;
+        alive = false;
     }
 }

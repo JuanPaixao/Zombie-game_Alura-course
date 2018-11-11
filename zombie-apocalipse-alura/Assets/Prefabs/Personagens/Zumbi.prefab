@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 54857078629711240}
   - component: {fileID: 95980128750324710}
   - component: {fileID: 114210205338120818}
+  - component: {fileID: 114971833986966374}
   m_Layer: 0
   m_Name: Zumbi
   m_TagString: Enemy
@@ -1246,7 +1247,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1105417723486888}
   m_LocalRotation: {x: 0, y: 0.9659258, z: 0, w: 0.2588191}
-  m_LocalPosition: {x: -30.100359, y: -0.25, z: 2.422463}
+  m_LocalPosition: {x: -43.80462, y: -0.1947025, z: 31.314703}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4600150162690686}
@@ -1419,7 +1420,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 954f657461a0e4b4b9fa8a6c7c8f2a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 7
+  _deathZombieClip: {fileID: 8300000, guid: afeaf0e0cd09d95429ff9c060b049c50, type: 3}
+--- !u!114 &114971833986966374
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1105417723486888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52d8712eb3867f749b1a3bc98e799aaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &136706509416327264
 CapsuleCollider:
   m_ObjectHideFlags: 1
