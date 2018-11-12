@@ -8,8 +8,8 @@ public class UIManager : MonoBehaviour
     private Player _playerScript;
     public Slider sliderHP;
     public GameObject gameOverPanel;
-    public Text gameOverText, maxGameOverText;
-    private int _minutes, _seconds;
+    public Text gameOverText, maxGameOverText, zombieScore;
+    private int _minutes, _seconds, _zombiesKilled;
     private float _maxScore;
     void Start()
     {
@@ -44,5 +44,10 @@ public class UIManager : MonoBehaviour
             sec = (int)_maxScore % 60;
             maxGameOverText.text = string.Format("Your best time is:\n{0} min and {1} seconds", min, sec);
         }
+    }
+    public void UpdateZombieCount()
+    {
+        _zombiesKilled++;
+        zombieScore.text = string.Format("x {0}", _zombiesKilled);
     }
 }

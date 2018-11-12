@@ -1424,6 +1424,7 @@ MonoBehaviour:
   _deathZombieClip: {fileID: 8300000, guid: afeaf0e0cd09d95429ff9c060b049c50, type: 3}
   followingPlayer: 0
   closeEnough: 0
+  medicalKit: {fileID: 1060151288946202, guid: 6150c6f66b7034ec5b3672478195682a, type: 2}
 --- !u!114 &114971833986966374
 MonoBehaviour:
   m_ObjectHideFlags: 1

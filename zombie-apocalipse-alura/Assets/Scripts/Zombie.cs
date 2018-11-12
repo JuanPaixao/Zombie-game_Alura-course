@@ -6,15 +6,18 @@ public class Zombie : MonoBehaviour, ICharacterDamage
 {
     public float speed;
     private GameObject _player;
-    private float _distance, _changeRandomPosition, _cooldownChangePos;
+    private float _distance, _changeRandomPosition, _cooldownChangePos, _dropChance;
     private int _selectZombie, _hp;
     private CharactersMovement _enemyMovement;
     [SerializeField] private AudioClip _deathZombieClip;
     private Vector3 _randomPosition, _direction;
     public bool followingPlayer, closeEnough;
     private Animator _animator;
+    public GameObject medicalKit;
+    private UIManager _uiManager;
     void Start()
     {
+        _dropChance = 0.2f;
         _animator = GetComponent<Animator>();
         _cooldownChangePos = 3;
         _hp = 10;
@@ -22,6 +25,7 @@ public class Zombie : MonoBehaviour, ICharacterDamage
         _selectZombie = Random.Range(1, 28);
         transform.GetChild(_selectZombie).gameObject.SetActive(true);
         _player = GameObject.FindGameObjectWithTag("Player");
+        _uiManager = GameObject.FindObjectOfType(typeof(UIManager)) as UIManager;
     }
     void FixedUpdate()
     {
@@ -96,10 +100,20 @@ public class Zombie : MonoBehaviour, ICharacterDamage
     }
     public void Die()
     {
+        _uiManager.UpdateZombieCount();
+        MedicalKitSpawn(_dropChance);
         Destroy(this.gameObject);
     }
     private void ZombieMoving(bool move)
     {
         _animator.SetBool("isMoving", move);
+    }
+    private void MedicalKitSpawn(float spawnPercentage)
+    {
+        Debug.Log(spawnPercentage);
+        if (Random.value <= spawnPercentage)
+        {
+            Instantiate(medicalKit, this.transform.position, this.transform.rotation);
+        }
     }
 }

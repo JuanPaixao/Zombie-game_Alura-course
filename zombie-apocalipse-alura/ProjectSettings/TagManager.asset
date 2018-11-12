@@ -8,6 +8,7 @@ TagManager:
   - Inimigo
   - GameOverText
   - GameManager
+  - Kit
   layers:
   - Default
   - TransparentFX

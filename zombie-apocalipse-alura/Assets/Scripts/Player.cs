@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour, ICharacterDamage
+public class Player : MonoBehaviour, ICharacterDamage, IHeal
 {
-    [SerializeField] private Status _status;
+    public Status status;
     private float _playerSpeed;
     private Rigidbody _rigidbody;
     private Animator _animator;
@@ -20,8 +20,8 @@ public class Player : MonoBehaviour, ICharacterDamage
     private Vector3 _direction;
     void Awake()
     {
-        hp = _status.initialHP;
-        _playerSpeed = _status.speed;
+        hp = status.initialHP;
+        _playerSpeed = status.speed;
     }
     void Start()
     {
@@ -66,5 +66,14 @@ public class Player : MonoBehaviour, ICharacterDamage
         Time.timeScale = 0;
         alive = false;
         uIManager.GameOver();
+    }
+    public void Heal(int healAmount)
+    {
+        hp += healAmount;
+        if (hp > status.initialHP)
+        {
+            hp = status.initialHP;
+        }
+        uIManager.SetHP();
     }
 }
