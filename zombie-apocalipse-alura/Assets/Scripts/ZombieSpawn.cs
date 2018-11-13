@@ -6,24 +6,37 @@ public class ZombieSpawn : MonoBehaviour
 {
     [SerializeField] private GameObject _zombie;
     public Player player;
-    private float _spawnCooldown, _spawnDistance;
-    private int _randomNumber;
+    private float _spawnCooldown, _spawnDistance, _timeNextIncreaseDifficult, _countIncreaseDifficult;
+    private int _randomNumber, _maxZombiesNumber, _zombiesNumber;
     public LayerMask layerMaskZumbi;
 
 
 
     void Start()
     {
+        _timeNextIncreaseDifficult = 30f;
+        _countIncreaseDifficult = _timeNextIncreaseDifficult;
+        _maxZombiesNumber = 3;
         _spawnDistance = 3;
         _randomNumber = Random.Range(1, 5);
+        for (int i = 0; i < _maxZombiesNumber; i++)
+        {
+            StartCoroutine(SpawnZombie());
+        }
     }
     void Update()
     {
         _spawnCooldown += Time.deltaTime;
-        if (_spawnCooldown >= _randomNumber)
+        if (_spawnCooldown >= _randomNumber && _zombiesNumber < _maxZombiesNumber)
         {
             StartCoroutine(SpawnZombie());
             _spawnCooldown = 0f;
+        }
+
+        if (Time.timeSinceLevelLoad > _countIncreaseDifficult)
+        {
+            _maxZombiesNumber++;
+            _countIncreaseDifficult += _timeNextIncreaseDifficult;
         }
     }
     private IEnumerator SpawnZombie()
@@ -36,7 +49,13 @@ public class ZombieSpawn : MonoBehaviour
             colliders = Physics.OverlapSphere(spawnPosition, 1, layerMaskZumbi);
             yield return null;
         }
-        Instantiate(_zombie, spawnPosition, this.transform.rotation);
+        Zombie zombie = Instantiate(_zombie, spawnPosition, this.transform.rotation).GetComponent<Zombie>();
+        zombie._mySpawn = this;
+        _zombiesNumber++;
+    }
+    public void ZombieKilled()
+    {
+        _zombiesNumber--;
     }
 
     void OnDrawGizmos()

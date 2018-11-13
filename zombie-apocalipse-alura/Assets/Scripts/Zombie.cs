@@ -11,10 +11,11 @@ public class Zombie : MonoBehaviour, ICharacterDamage
     private CharactersMovement _enemyMovement;
     [SerializeField] private AudioClip _deathZombieClip;
     private Vector3 _randomPosition, _direction;
-    public bool followingPlayer, closeEnough;
+    public bool followingPlayer, closeEnough, dead;
     private Animator _animator;
     public GameObject medicalKit;
     private UIManager _uiManager;
+    [HideInInspector] public ZombieSpawn _mySpawn;
     void Start()
     {
         _dropChance = 0.2f;
@@ -29,33 +30,36 @@ public class Zombie : MonoBehaviour, ICharacterDamage
     }
     void FixedUpdate()
     {
-        if (_direction.magnitude > 2)
+        if (!dead)
         {
-            ZombieMoving(true);
-        }
-        else
-        {
-            ZombieMoving(false);
-        }
-        _distance = Vector3.Distance(_player.transform.position, this.transform.position);
-        if (_distance > 15f)
-        {
-            followingPlayer = false;
-            WalkRandom();
-            _enemyMovement.Rotation(_direction);
-        }
-        else if (_distance > 2.25f)
-        {
-            _direction = _player.transform.position - transform.position;
-            followingPlayer = true;
-            _enemyMovement.Rotation(_direction);
-            _enemyMovement.Movement(_direction, speed);
-            GetComponent<Animator>().SetBool("Attacking", false);
-        }
-        else
-        {
-            GetComponent<Animator>().SetBool("Attacking", true);
-            _enemyMovement.Rotation(_direction);
+            if (_direction.magnitude > 2)
+            {
+                ZombieMoving(true);
+            }
+            else
+            {
+                ZombieMoving(false);
+            }
+            _distance = Vector3.Distance(_player.transform.position, this.transform.position);
+            if (_distance > 15f)
+            {
+                followingPlayer = false;
+                WalkRandom();
+                _enemyMovement.Rotation(_direction);
+            }
+            else if (_distance > 2.25f)
+            {
+                _direction = _player.transform.position - transform.position;
+                followingPlayer = true;
+                _enemyMovement.Rotation(_direction);
+                _enemyMovement.Movement(_direction, speed);
+                GetComponent<Animator>().SetBool("Attacking", false);
+            }
+            else
+            {
+                GetComponent<Animator>().SetBool("Attacking", true);
+                _enemyMovement.Rotation(_direction);
+            }
         }
     }
     void WalkRandom()
@@ -64,7 +68,7 @@ public class Zombie : MonoBehaviour, ICharacterDamage
         if (_changeRandomPosition <= 0)
         {
             _randomPosition = RandomPos();
-            _changeRandomPosition = _cooldownChangePos;
+            _changeRandomPosition = _cooldownChangePos + Random.Range(-1f, 7.5f);
         }
         closeEnough = (Vector3.Distance(transform.position, _randomPosition) <= 1);
         if (!closeEnough)
@@ -84,7 +88,7 @@ public class Zombie : MonoBehaviour, ICharacterDamage
     void AttackingPlayer()
     {
         int randomDamage = Random.Range(20, 31);
-        if (_distance <= 2.8f)
+        if (_distance <= 2.9f)
         {
             _player.GetComponent<Player>().Damage(randomDamage);
         }
@@ -100,9 +104,15 @@ public class Zombie : MonoBehaviour, ICharacterDamage
     }
     public void Die()
     {
+        dead = true;
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+        Collider collider = GetComponent<Collider>();
+        collider.enabled = false;
+        _animator.SetTrigger("isDead");
         _uiManager.UpdateZombieCount();
         MedicalKitSpawn(_dropChance);
-        Destroy(this.gameObject);
+        _mySpawn.ZombieKilled();
+        Destroy(this.gameObject, 10f);
     }
     private void ZombieMoving(bool move)
     {

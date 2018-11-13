@@ -23,8 +23,14 @@ public class Bullet : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            _gameManager.ShakeCamera();
-           other.GetComponent<Zombie>().Damage(10);
+            Zombie zommbie = other.GetComponent<Zombie>();
+            if (!zommbie.dead)
+            {
+                zommbie.Damage(10);
+
+                _gameManager.ShakeCamera();
+            }
+
         }
         Destroy(this.gameObject);
     }
