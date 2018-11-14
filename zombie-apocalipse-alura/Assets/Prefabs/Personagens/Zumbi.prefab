@@ -1421,9 +1421,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  _deathZombieClip: {fileID: 8300000, guid: afeaf0e0cd09d95429ff9c060b049c50, type: 3}
+  _deathZombieClip: {fileID: 8300000, guid: a104f1f184b34d245b0d5a94105a734e, type: 3}
   followingPlayer: 0
   closeEnough: 0
+  dead: 0
   medicalKit: {fileID: 1060151288946202, guid: 6150c6f66b7034ec5b3672478195682a, type: 2}
   _mySpawn: {fileID: 0}
 --- !u!114 &114971833986966374

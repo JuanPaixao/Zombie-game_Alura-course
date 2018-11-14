@@ -21,16 +21,28 @@ public class Bullet : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
+        switch (other.tag)
         {
-            Zombie zommbie = other.GetComponent<Zombie>();
-            if (!zommbie.dead)
-            {
-                zommbie.Damage(10);
+            case "Enemy":
+                Zombie zommbie = other.GetComponent<Zombie>();
+                if (!zommbie.dead)
+                {
+                    zommbie.Damage(10);
 
-                _gameManager.ShakeCamera();
-            }
+                    _gameManager.ShakeCamera();
+                }
+                break;
 
+            case "Boss":
+                {
+                    BossControl boss = other.GetComponent<BossControl>();
+                    if (!boss.dead)
+                    {
+                        boss.TakeDamage(1);
+                        _gameManager.ShakeCamera();
+                    }
+                }
+                break;
         }
         Destroy(this.gameObject);
     }

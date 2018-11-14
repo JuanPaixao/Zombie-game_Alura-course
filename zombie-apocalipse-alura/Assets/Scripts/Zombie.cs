@@ -23,7 +23,7 @@ public class Zombie : MonoBehaviour, ICharacterDamage
         _cooldownChangePos = 3;
         _hp = 10;
         _enemyMovement = GetComponent<CharactersMovement>();
-        _selectZombie = Random.Range(1, 28);
+        _selectZombie = Random.Range(1, transform.childCount);
         transform.GetChild(_selectZombie).gameObject.SetActive(true);
         _player = GameObject.FindGameObjectWithTag("Player");
         _uiManager = GameObject.FindObjectOfType(typeof(UIManager)) as UIManager;

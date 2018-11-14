@@ -9,6 +9,7 @@ TagManager:
   - GameOverText
   - GameManager
   - Kit
+  - Boss
   layers:
   - Default
   - TransparentFX
