@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f3683a562bbfc74ebbf5c08af1d5575, type: 3}
   m_Name: StatusBoss
   m_EditorClassIdentifier: 
-  initialHP: 50
+  initialHP: 10
   hp: -9
   speed: 4.2

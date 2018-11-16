@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class BossControl : MonoBehaviour
 {
@@ -14,10 +15,14 @@ public class BossControl : MonoBehaviour
     public bool dead;
     private UIManager _uiManager;
     private int _hp = 7;
+    private int _maxHP;
     public GameObject MedicKit;
+    public Slider sliderBossHP;
+    public Image imageSlider;
 
     [SerializeField] private AudioClip _zombieClip;
     [SerializeField] private AudioClip _deathZombieClip;
+    public Color minColor, maxColor;
     void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -26,6 +31,9 @@ public class BossControl : MonoBehaviour
         _bossMovement = GetComponent<CharactersMovement>();
         _uiManager = GameObject.FindObjectOfType(typeof(UIManager)) as UIManager;
         _agent.speed = bossStatus.speed;
+        _maxHP = _hp;
+        sliderBossHP.maxValue = _hp;
+        UpdateLifebar();
     }
     void Update()
     {
@@ -74,6 +82,7 @@ public class BossControl : MonoBehaviour
     public void TakeDamage(int damage)
     {
         _hp -= damage;
+        UpdateLifebar();
         AudioManager.instance.PlayOneShot(_zombieClip, 0.7f);
         if (_hp <= 0)
         {
@@ -82,7 +91,7 @@ public class BossControl : MonoBehaviour
     }
     void Die()
     {
-        Instantiate(MedicKit,this.transform.position,this.transform.rotation);
+        Instantiate(MedicKit, this.transform.position, this.transform.rotation);
         dead = true;
         GetComponent<Rigidbody>().isKinematic = false;
         GetComponent<Rigidbody>().velocity = Vector3.zero;
@@ -93,5 +102,12 @@ public class BossControl : MonoBehaviour
         _uiManager.UpdateZombieCount();
         _agent.enabled = false;
         Destroy(this.gameObject, 10f);
+    }
+    void UpdateLifebar()
+    {
+        sliderBossHP.value = _hp;
+        float lifePercentage = (float)_hp / _maxHP;
+        Color lifebar = Color.Lerp(minColor, maxColor,lifePercentage);
+        imageSlider.color = lifebar;
     }
 }
