@@ -16,7 +16,7 @@ public class BossControl : MonoBehaviour
     private UIManager _uiManager;
     private int _hp = 7;
     private int _maxHP;
-    public GameObject MedicKit;
+    public GameObject MedicKit,bloodParticle;
     public Slider sliderBossHP;
     public Image imageSlider;
 
@@ -89,6 +89,10 @@ public class BossControl : MonoBehaviour
             Die();
         }
     }
+    public void BloodParticle(Vector3 position, Quaternion rotation)
+    {
+        Instantiate(bloodParticle, position, rotation);
+    }
     void Die()
     {
         Instantiate(MedicKit, this.transform.position, this.transform.rotation);
@@ -110,4 +114,5 @@ public class BossControl : MonoBehaviour
         Color lifebar = Color.Lerp(minColor, maxColor,lifePercentage);
         imageSlider.color = lifebar;
     }
+    
 }

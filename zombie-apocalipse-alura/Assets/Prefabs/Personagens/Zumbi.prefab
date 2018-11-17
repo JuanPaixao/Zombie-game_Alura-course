@@ -1247,7 +1247,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1105417723486888}
   m_LocalRotation: {x: 0, y: 0.9659258, z: 0, w: 0.2588191}
-  m_LocalPosition: {x: -26.262718, y: -0.1947025, z: 13.19886}
+  m_LocalPosition: {x: -27.23713, y: -0.1947025, z: 0.99264526}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4600150162690686}
@@ -1427,6 +1427,8 @@ MonoBehaviour:
   dead: 0
   medicalKit: {fileID: 1060151288946202, guid: 6150c6f66b7034ec5b3672478195682a, type: 2}
   _mySpawn: {fileID: 0}
+  _bloodParticle: {fileID: 1241105359923976, guid: f12bb8fd8d6e71a47a3f77bd67dd5975,
+    type: 2}
 --- !u!114 &114971833986966374
 MonoBehaviour:
   m_ObjectHideFlags: 1

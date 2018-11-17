@@ -21,6 +21,7 @@ public class Bullet : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
+        Quaternion oppositeBulletRotation = Quaternion.LookRotation(-transform.forward); //transform a direction in a rotation
         switch (other.tag)
         {
             case "Enemy":
@@ -28,7 +29,7 @@ public class Bullet : MonoBehaviour
                 if (!zommbie.dead)
                 {
                     zommbie.Damage(10);
-
+                    zommbie.BloodParticle(this.transform.position,oppositeBulletRotation);
                     _gameManager.ShakeCamera();
                 }
                 break;
@@ -39,6 +40,7 @@ public class Bullet : MonoBehaviour
                     if (!boss.dead)
                     {
                         boss.TakeDamage(1);
+                        boss.BloodParticle(this.transform.position,oppositeBulletRotation);
                         _gameManager.ShakeCamera();
                     }
                 }

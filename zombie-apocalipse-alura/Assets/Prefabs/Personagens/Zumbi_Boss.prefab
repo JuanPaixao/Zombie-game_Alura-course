@@ -1135,7 +1135,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1562073012706402}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -28.272331, y: 0, z: -7.247609}
+  m_LocalPosition: {x: -31.375572, y: -0.1947025, z: 29.113544}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4656368342408028}
@@ -1593,6 +1593,8 @@ MonoBehaviour:
   bossStatus: {fileID: 11400000, guid: 7bf01bbb15a8a4f498d143dde1ba37d5, type: 2}
   dead: 0
   MedicKit: {fileID: 1060151288946202, guid: 6150c6f66b7034ec5b3672478195682a, type: 2}
+  bloodParticle: {fileID: 1241105359923976, guid: f12bb8fd8d6e71a47a3f77bd67dd5975,
+    type: 2}
   sliderBossHP: {fileID: 114596947537892818}
   imageSlider: {fileID: 114134905035271538}
   _zombieClip: {fileID: 8300000, guid: afeaf0e0cd09d95429ff9c060b049c50, type: 3}

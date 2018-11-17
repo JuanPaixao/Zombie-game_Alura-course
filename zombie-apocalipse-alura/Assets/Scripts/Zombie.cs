@@ -16,6 +16,7 @@ public class Zombie : MonoBehaviour, ICharacterDamage
     public GameObject medicalKit;
     private UIManager _uiManager;
     [HideInInspector] public ZombieSpawn _mySpawn;
+    [SerializeField] private GameObject _bloodParticle;
     void Start()
     {
         _dropChance = 0.2f;
@@ -101,6 +102,10 @@ public class Zombie : MonoBehaviour, ICharacterDamage
         {
             Die();
         }
+    }
+    public void BloodParticle(Vector3 position, Quaternion rotation)
+    {
+        Instantiate(_bloodParticle, position, rotation);
     }
     public void Die()
     {
