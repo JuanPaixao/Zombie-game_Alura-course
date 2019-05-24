@@ -17,7 +17,7 @@ public class StickButton : MonoBehaviour, IDragHandler //unity EventSystems inte
 
     private void SetJoystickPosition(Vector2 mousePosition) 
     {
-       this._stickImage.localPosition = mousePosition; //setting the localposition = mouseposition, otherwise it will use global position 
+       this._stickImage.localPosition = mousePosition; //setting the localposition = mouseposition, otherwise it will use global position of the canvas
     }
 
     private Vector2 CalculateMousePosition(PointerEventData eventData)
