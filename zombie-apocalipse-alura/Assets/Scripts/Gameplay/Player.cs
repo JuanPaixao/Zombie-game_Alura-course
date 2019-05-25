@@ -18,6 +18,7 @@ public class Player : MonoBehaviour, ICharacterDamage, IHeal
     [SerializeField] private AudioClip _audioClipDamage;
     private PlayerMovement _playerMovement;
     private Vector3 _direction;
+
     void Awake()
     {
         hp = status.initialHP;
@@ -35,10 +36,8 @@ public class Player : MonoBehaviour, ICharacterDamage, IHeal
     {
         if (alive)
         {
-            movHor = Input.GetAxis("Horizontal");
-            movVer = Input.GetAxis("Vertical");
-            _direction = new Vector3(movHor, 0, movVer);
             isWalking(_direction.magnitude);
+            Debug.Log("Direction magnitude" + _direction.magnitude);
         }
     }
     public void isWalking(float isMoving)
@@ -47,8 +46,7 @@ public class Player : MonoBehaviour, ICharacterDamage, IHeal
     }
     void FixedUpdate()
     {
-        _rigidbody.MovePosition(_rigidbody.position + _direction * _playerSpeed * Time.deltaTime);
-
+        _playerMovement.Movement(_playerSpeed);
         _playerMovement.PlayerMov(layerMask, _hit);
     }
     public void Damage(int damage)

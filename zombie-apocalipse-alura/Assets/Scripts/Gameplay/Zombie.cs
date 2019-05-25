@@ -51,9 +51,10 @@ public class Zombie : MonoBehaviour, ICharacterDamage
             else if (_distance > 2.25f)
             {
                 _direction = _player.transform.position - transform.position;
+                _enemyMovement.SetDirection(_direction);
                 followingPlayer = true;
                 _enemyMovement.Rotation(_direction);
-                _enemyMovement.Movement(_direction, speed);
+                _enemyMovement.Movement(speed);
                 GetComponent<Animator>().SetBool("Attacking", false);
             }
             else
@@ -75,7 +76,8 @@ public class Zombie : MonoBehaviour, ICharacterDamage
         if (!closeEnough)
         {
             _direction = _randomPosition - this.transform.position;
-            _enemyMovement.Movement(_direction, speed);
+            _enemyMovement.SetDirection(_direction);
+            _enemyMovement.Movement(speed);
         }
     }
     private Vector3 RandomPos()

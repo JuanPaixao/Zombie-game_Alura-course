@@ -227,9 +227,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -63.000137, y: -63.00003}
+  m_AnchoredPosition: {x: -0.0002593994, y: -0.000091552734}
   m_SizeDelta: {x: 126, y: 126}
-  m_Pivot: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &33938517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10970,6 +10970,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1978420650197722, guid: bd2f826009dfa934fb5924f320fa9071,
     type: 2}
   m_PrefabInternal: {fileID: 1887245060}
+--- !u!114 &717838725 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114567083811888110, guid: bd2f826009dfa934fb5924f320fa9071,
+    type: 2}
+  m_PrefabInternal: {fileID: 1887245060}
+  m_Script: {fileID: 11500000, guid: dd2b5d837c17206409ea3db570a2e327, type: 3}
 --- !u!114 &717838726 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114242938554427112, guid: bd2f826009dfa934fb5924f320fa9071,
@@ -43677,8 +43683,8 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
+  m_Camera: {fileID: 381463229}
+  m_PlaneDistance: 1
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -44271,7 +44277,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 64.9, y: 46.8}
+  m_AnchoredPosition: {x: 64.899994, y: 46.800003}
   m_SizeDelta: {x: 126.72, y: 126.72}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &2079410505
@@ -44287,6 +44293,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _backgroundImage: {fileID: 33938516}
   _stickImage: {fileID: 465853130}
+  _OnValueChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 717838725}
+        m_MethodName: SetDirection
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Vector2UnityEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1001 &2087477383
 Prefab:
   m_ObjectHideFlags: 0
