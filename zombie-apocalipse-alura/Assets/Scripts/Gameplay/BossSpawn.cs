@@ -10,6 +10,7 @@ public class BossSpawn : MonoBehaviour
     private UIManager _uIManager;
     public Transform[] spawnPositions;
     private Transform _player;
+    private FixedSizeBox _box;
 
     void Start()
     {
@@ -45,3 +46,4 @@ public class BossSpawn : MonoBehaviour
         return biggerDistancePosition;
     }
 }
+ 

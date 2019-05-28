@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-public class BossControl : MonoBehaviour
+public class BossControl : MonoBehaviour, ISetBox
 {
 
     private Transform _player;
@@ -16,9 +16,10 @@ public class BossControl : MonoBehaviour
     private UIManager _uiManager;
     private int _hp = 7;
     private int _maxHP;
-    public GameObject MedicKit,bloodParticle;
+    public GameObject MedicKit, bloodParticle;
     public Slider sliderBossHP;
     public Image imageSlider;
+    private FixedSizeBox _box;
 
     [SerializeField] private AudioClip _zombieClip;
     [SerializeField] private AudioClip _deathZombieClip;
@@ -111,8 +112,12 @@ public class BossControl : MonoBehaviour
     {
         sliderBossHP.value = _hp;
         float lifePercentage = (float)_hp / _maxHP;
-        Color lifebar = Color.Lerp(minColor, maxColor,lifePercentage);
+        Color lifebar = Color.Lerp(minColor, maxColor, lifePercentage);
         imageSlider.color = lifebar;
     }
-    
+
+    public void SetBox(FixedSizeBox box)
+    {
+      this._box = box;
+    }
 }

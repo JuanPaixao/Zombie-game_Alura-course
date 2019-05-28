@@ -1420,7 +1420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 954f657461a0e4b4b9fa8a6c7c8f2a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 5
   _deathZombieClip: {fileID: 8300000, guid: a104f1f184b34d245b0d5a94105a734e, type: 3}
   followingPlayer: 0
   closeEnough: 0

@@ -21,7 +21,7 @@ public class CharactersMovement : MonoBehaviour
     }
     public void SetDirection(Vector3 direction)
     {
-        this.direction = direction;
+        this.direction = direction.normalized;
     }
     public void Rotation(Vector3 direction)
     {

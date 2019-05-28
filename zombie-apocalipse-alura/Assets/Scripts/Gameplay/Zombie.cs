@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Zombie : MonoBehaviour, ICharacterDamage
+public class Zombie : MonoBehaviour, ICharacterDamage, ISetBox
 {
     public float speed;
     private GameObject _player;
@@ -17,6 +17,7 @@ public class Zombie : MonoBehaviour, ICharacterDamage
     private UIManager _uiManager;
     [HideInInspector] public ZombieSpawn _mySpawn;
     [SerializeField] private GameObject _bloodParticle;
+    [SerializeField] private FixedSizeBox _zombieBox;
     void Start()
     {
         _dropChance = 0.2f;
@@ -64,6 +65,8 @@ public class Zombie : MonoBehaviour, ICharacterDamage
             }
         }
     }
+
+
     void WalkRandom()
     {
         _changeRandomPosition -= Time.deltaTime;
@@ -118,8 +121,7 @@ public class Zombie : MonoBehaviour, ICharacterDamage
         _animator.SetTrigger("isDead");
         _uiManager.UpdateZombieCount();
         MedicalKitSpawn(_dropChance);
-        _mySpawn.ZombieKilled();
-        Destroy(this.gameObject, 10f);
+        Invoke("ReturnToBox", 2); //execute my function after 2 seconds
     }
     private void ZombieMoving(bool move)
     {
@@ -132,5 +134,19 @@ public class Zombie : MonoBehaviour, ICharacterDamage
         {
             Instantiate(medicalKit, this.transform.position, this.transform.rotation);
         }
+    }
+    private void ReturnToBox()
+    {
+        this._zombieBox.ReturnObject(this.gameObject);
+    }
+    public void SetBox(FixedSizeBox box)
+    {
+        this._zombieBox = box;
+    }
+    public void ActiveZombie()
+    {
+        Collider collider = GetComponent<Collider>();
+        collider.enabled = true;
+        dead = false;
     }
 }
