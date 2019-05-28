@@ -13,7 +13,7 @@ public class CharactersMovement : MonoBehaviour
     }
     public void Movement(float speed)
     {
-        _rb.MovePosition(_rb.position + direction.normalized * Time.deltaTime * speed);
+        _rb.MovePosition(_rb.position + direction * Time.deltaTime * speed);
     }
     public void SetDirection(Vector2 direction)
     {
@@ -25,8 +25,11 @@ public class CharactersMovement : MonoBehaviour
     }
     public void Rotation(Vector3 direction)
     {
-        Quaternion newRot = Quaternion.LookRotation(direction);
-        _rb.MoveRotation(newRot);
+        if (direction != Vector3.zero)
+        {
+            Quaternion newRot = Quaternion.LookRotation(direction);
+            _rb.MoveRotation(newRot);
+        }
     }
 
 }

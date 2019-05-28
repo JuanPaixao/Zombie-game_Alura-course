@@ -10,7 +10,6 @@ public class Player : MonoBehaviour, ICharacterDamage, IHeal
     private Animator _animator;
     float movHor, movVer;
     private RaycastHit _hit;
-    public LayerMask layerMask;
     public bool alive;
     public GameManager gameManager;
     public int hp;
@@ -18,6 +17,8 @@ public class Player : MonoBehaviour, ICharacterDamage, IHeal
     [SerializeField] private AudioClip _audioClipDamage;
     private PlayerMovement _playerMovement;
     private Vector3 _direction;
+    [SerializeField] private AudioSource _stepSounds;
+    [SerializeField] private AudioClip[] _stepSoundsClip;
 
     void Awake()
     {
@@ -36,7 +37,7 @@ public class Player : MonoBehaviour, ICharacterDamage, IHeal
     {
         if (alive)
         {
-            isWalking(_direction.magnitude);
+            isWalking(this._playerMovement.direction.magnitude);
             Debug.Log("Direction magnitude" + _direction.magnitude);
         }
     }
@@ -47,7 +48,7 @@ public class Player : MonoBehaviour, ICharacterDamage, IHeal
     void FixedUpdate()
     {
         _playerMovement.Movement(_playerSpeed);
-        _playerMovement.PlayerMov(layerMask, _hit);
+        _playerMovement.PlayerMov();
     }
     public void Damage(int damage)
     {
@@ -73,5 +74,9 @@ public class Player : MonoBehaviour, ICharacterDamage, IHeal
             hp = status.initialHP;
         }
         uIManager.SetHP();
+    }
+    public void Steps(int stepNumber)
+    {
+        _stepSounds.PlayOneShot(_stepSoundsClip[stepNumber]);
     }
 }

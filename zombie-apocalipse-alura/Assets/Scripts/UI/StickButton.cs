@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems; // to use interface Drag Handler
 
-public class StickButton : MonoBehaviour, IDragHandler //unity EventSystems interface to use OnDrag methoid
+public class StickButton : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler //unity EventSystems interface to use OnDrag and IPointer methods 
 {
     [SerializeField] private RectTransform _backgroundImage; //my button background image
     [SerializeField] private RectTransform _stickImage; //my "stick" image
@@ -46,9 +46,21 @@ public class StickButton : MonoBehaviour, IDragHandler //unity EventSystems inte
         return this._backgroundImage.rect.width / 2; //my reference image size, as it is a square, i choose the width because it doesnt make difference in this case, and i % by 2 because
                                                      //my reference is the CENTER of the image, not the edge
     }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        this.SetJoystickPosition(Vector2.zero); //reset my stick position
+        _OnValueChanged.Invoke(Vector2.zero); //reset my stick position
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        this.OnDrag(eventData); //when i click on my stick, my player can move. With it, my stick "jumps" to where i clicked 
+    }
 }
 
-[Serializable] public class Vector2UnityEvent : UnityEvent<Vector2> //using serializable in order to unity serialize it and show it on my editor
+[Serializable]
+public class Vector2UnityEvent : UnityEvent<Vector2> //using serializable in order to unity serialize it and show it on my editor
 {
 
 }
